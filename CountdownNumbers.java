@@ -54,23 +54,23 @@ public class CountdownNumbers {
    }
 
    public static int[] chooseNumbers(final int nbOfLargeNbrs) {
-      final int[] chosenNumbers = new int[6]; // allocate memory for 6 integers
-      addUniqueNbrs(chosenNumbers, largeNumbers, nbOfLargeNbrs);
+      int[] chosenNumbers = new int[6]; // allocate memory for 6 integers
+      addUniqueNbrs(chosenNumbers, largeNumbers, 0, nbOfLargeNbrs);
       // The rest of the numbers (min 2, max 6) are going to be small numbers
-      addUniqueNbrs(chosenNumbers, smallNumbers, nbrsToGenerate - nbOfLargeNbrs);
+      addUniqueNbrs(chosenNumbers, smallNumbers, nbOfLargeNbrs, nbrsToGenerate);
       return chosenNumbers;
    }
 
    // This function makes sure that we chose unique indexes from the index range of
    // the passed chooseFrom array since we don't want that a number at a given
    // index is chosen twice
-   private static int[] addUniqueNbrs(final int[] nbrsChosen, final int[] chooseFrom, final int hmToChoose) {
+   private static int[] addUniqueNbrs(int[] nbrsChosen, int[] chooseFrom, int start, int finish) {
       int gen;
       boolean unique;
       // Keep track of which indexes have already been generated
-      final List<Integer> alreadyGenerated = new ArrayList<Integer>();
+      List<Integer> alreadyGenerated = new ArrayList<Integer>();
 
-      for(int i = 0; i < hmToChoose; i++){
+      for(int i = start; i < finish; i++){
          unique = false;
          while (!unique){
             gen = random.nextInt(chooseFrom.length);
