@@ -42,6 +42,14 @@ import java.util.Arrays;
 
 
 public class CountdownNumbers {
+   /* TODO:
+    * - Generate the large number
+    * - Take user input
+    * - algorithm to calculate possible solutions
+    * - add Timer of 30 Seconds, after the 30 seconds are over no more intputs
+    *   will be taken (second part is optional)
+    * - GUI
+    */
    private final static int nbrsToGenerate = 6;
    private final static Random random = new Random();
    private final static int[] smallNumbers = new int[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10 };
