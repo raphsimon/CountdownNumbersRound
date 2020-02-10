@@ -59,6 +59,8 @@ public class CountdownNumbers {
    public static void main(final String[] args) {
       final int[] nbrs = chooseNumbers(2);
       System.out.println(Arrays.toString(nbrs));
+      int goal = generateGoal();
+      System.out.println(goal);
    }
 
    public static int[] chooseNumbers(final int nbOfLargeNbrs) {
@@ -90,5 +92,12 @@ public class CountdownNumbers {
          }
       }
       return nbrsChosen;
+   }
+
+   private static int generateGoal() {
+      // Since nextInt only takes an upper born, we deduct de min from the max
+      // and then add back the min value
+      int goal = random.nextInt(900) + 100;
+      return goal;
    }
 }
